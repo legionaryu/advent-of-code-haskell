@@ -19,7 +19,7 @@ main = do
 
 -- Parses the line into an array of zeros and ones
 parseLine :: String -> [Int]
--- If starts with 'f' then it is a step forward, so returns a tuple with the first element as the parsed step value and the second element as 0
+-- Transform every char in the binary string into an integer
 parseLine = map (read . pure :: Char -> Int)
 
 -- Calculates the most frequent bits per position from bitSum and return the most frequent bits
