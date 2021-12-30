@@ -4,7 +4,7 @@ import Data.Maybe
 
 main = do
     -- Lazily read the file contents
-    fileContent <- readFile "day4_input.txt"
+    fileContent <- readFile "day04_input.txt"
     -- Split the file contents by line breaks into a list of strings
     let fileLines = lines fileContent
     -- Create a list integers representing the bingo numbers drawn in sequence

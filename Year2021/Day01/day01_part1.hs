@@ -1,6 +1,6 @@
 main = do
     -- Lazily read the file contents
-    fileContent <- readFile "./day1_input.txt"
+    fileContent <- readFile "day01_input.txt"
     -- Split the file contents by line breaks into a list of strings
     let fileLines = lines fileContent
     -- Convert the list of strings into a list of integers

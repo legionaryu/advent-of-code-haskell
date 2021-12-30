@@ -1,7 +1,7 @@
 import Data.List
 main = do
     -- Lazily read the file contents
-    fileContent <- readFile "day3_input.txt"
+    fileContent <- readFile "day03_input.txt"
     -- Split the file contents by line breaks into a list of strings
     let fileLines = lines fileContent
     -- Create a list of tuples from the list of lines containing each step in numerical format
