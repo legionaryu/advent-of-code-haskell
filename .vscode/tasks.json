@@ -6,9 +6,12 @@
     {
       "label": "Run",
       "type": "shell",
-      "command": "ghc -e main ${file}",
+      "command": "ghc -threaded -rtsopts -e main ${file}",
       "options": {
         "cwd": "${fileDirname}",
+        "env": {
+          "GHCRTS": "-N8"
+        }
       },
       "presentation": {
         "echo": true,
