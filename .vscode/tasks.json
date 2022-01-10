@@ -6,7 +6,7 @@
     {
       "label": "Run",
       "type": "shell",
-      "command": "ghc -threaded -rtsopts -e main ${file}",
+      "command": "ghc -i\"${workspaceFolder}\" -threaded -rtsopts -e main ${file}",
       "options": {
         "cwd": "${fileDirname}",
         "env": {
