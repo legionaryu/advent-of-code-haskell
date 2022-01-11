@@ -16,9 +16,13 @@ main = do
     putStrLn ("result: " ++ show totalFuelConsumption)
 
 
+-- Calculates de median of an Integral list
 median :: Integral a => [a] -> a
 median  x = let xLength = length x
+                -- The list need to be sorted to find the median
                 xSorted = sort x in
                 if odd xLength
+                    -- If the list has an odd number of elements, the median is the middle element
                     then xSorted !! (xLength `div` 2)
+                    -- Else we need to calculate the mean of the two middle elements
                     else (xSorted !! (xLength `div` 2 - 1) + xSorted !! (xLength `div` 2)) `div` 2
