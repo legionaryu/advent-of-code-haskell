@@ -11,14 +11,14 @@ main = do
     let crabPositions = map (read :: String -> Int) $ splitOn "," fileContent
     -- Run the parsing benchmark
     crabPositions <- printEvaluationTime "Time to parse: " crabPositions
-    mostCommonElement <- printEvaluationTime "Most Commom Element time: " $
-        head $ maximumBy (\x y -> compare (length x) (length y)) $ group $ sort crabPositions
-    totalFuelConsumption <- printEvaluationTime "Calculate fuel time: " $ sum $ map (\x -> abs (x - mostCommonElement)) crabPositions
+    crabMedian <- printEvaluationTime "Calculate median time: " $ median crabPositions
+    totalFuelConsumption <- printEvaluationTime "Calculate fuel time: " $ sum $ map (\x -> abs (x - crabMedian)) crabPositions
     putStrLn ("result: " ++ show totalFuelConsumption)
-    -- Simulate 80 days for each fish and sum the resulting number
-    -- let multisetResult = M.size . (!! 80) . iterate multisetSimulation $ M.fromList crabPositions
-    -- -- Run the simulation benchmark
-    -- multisetResult <- printEvaluationTime "Simulation time: " multisetResult
-    -- -- Print the result
-    -- putStrLn ("result: " ++ show multisetResult)
 
+
+median :: Integral a => [a] -> a
+median  x = let xLength = length x
+                xSorted = sort x in
+                if odd xLength
+                    then xSorted !! (xLength `div` 2)
+                    else (xSorted !! (xLength `div` 2 - 1) + xSorted !! (xLength `div` 2)) `div` 2
